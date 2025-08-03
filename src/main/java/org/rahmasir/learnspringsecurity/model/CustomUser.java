@@ -14,7 +14,7 @@ public class CustomUser {
 
     private String username;
     private String password;
-    private String role;
+    private String role; // e.g. "ADMIN,USER"
 
     public Long getId() {
         return id;
