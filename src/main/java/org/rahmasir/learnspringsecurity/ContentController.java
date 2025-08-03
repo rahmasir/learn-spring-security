@@ -13,7 +13,7 @@ public class ContentController {
 
     @GetMapping("/user/home")
     public String handleUserHome() {
-        return "home_user";
+        return "user_home";
     }
 
     @GetMapping("/admin/home")
