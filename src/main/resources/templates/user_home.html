@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-sky-100 flex items-center justify-center min-h-screen">
+
+<div class="w-full max-w-lg bg-white p-10 rounded-2xl shadow-2xl text-center">
+    <h1 class="text-4xl font-bold text-sky-800 mb-4">
+        Welcome, <span sec:authentication="name">User</span>!
+    </h1>
+    <p class="text-sky-600 text-lg mb-6">You have standard <span class="font-semibold">User</span> level access.</p>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+            Logout
+        </button>
+    </form>
+    <div class="mt-8 border-t border-sky-200 pt-6">
+        <p class="text-sky-500 italic">"Alone we can do so little; together we can do so much."</p>
+    </div>
+</div>
+
+</body>
+</html>
