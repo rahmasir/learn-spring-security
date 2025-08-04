@@ -1,4 +1,4 @@
-package org.rahmasir.learnspringsecurity;
+package org.rahmasir.learnspringsecurity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,4 +26,8 @@ public class ContentController {
         return "index";
     }
 
+    @GetMapping("/login")
+    public String handleLogin() {
+        return "custom_login";
+    }
 }
