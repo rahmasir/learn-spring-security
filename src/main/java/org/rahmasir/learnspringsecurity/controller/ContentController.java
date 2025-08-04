@@ -1,4 +1,4 @@
-package org.rahmasir.learnspringsecurity;
+package org.rahmasir.learnspringsecurity.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,5 +19,15 @@ public class ContentController {
     @GetMapping("/admin/home")
     public String handleAdminHome() {
         return "admin_home";
+    }
+
+    @GetMapping("")
+    public String handleIndexPage() {
+        return "index";
+    }
+
+    @GetMapping("/login")
+    public String handleLogin() {
+        return "custom_login";
     }
 }

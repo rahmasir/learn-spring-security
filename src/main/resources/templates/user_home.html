@@ -3,65 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Dashboard</title>
+    <title>User Home</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-        }
+        body { font-family: 'Inter', sans-serif; }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="bg-sky-100 flex items-center justify-center min-h-screen">
 
-<!-- Header -->
-<header class="bg-white shadow-md">
-    <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-        <div class="text-2xl font-bold text-gray-900">
-            MyApp - User Panel
-        </div>
-        <div>
-            <!-- In a real app, you would use th:href="@{/logout}" -->
-            <a href="#" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                Logout
-            </a>
-        </div>
-    </nav>
-</header>
-
-<!-- Main Content -->
-<main class="container mx-auto px-6 py-12">
-    <div class="bg-white p-8 rounded-2xl shadow-lg">
-        <h1 class="text-3xl font-bold text-gray-900 mb-2">
-            User Dashboard
-        </h1>
-        <!-- Using Spring Security Dialect to show username -->
-        <p class="text-xl text-gray-600 mb-6">
-            Welcome back, <span sec:authentication="name" class="font-semibold text-blue-600">Username</span>!
-        </p>
-
-        <div class="border-t border-gray-200 pt-6">
-            <h2 class="text-2xl font-semibold text-gray-800 mb-4">Your Content</h2>
-            <div class="grid md:grid-cols-2 gap-6">
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="font-bold text-lg mb-2">My Profile</h3>
-                    <p class="text-gray-600">View and edit your personal information.</p>
-                </div>
-                <div class="bg-gray-50 p-6 rounded-lg">
-                    <h3 class="font-bold text-lg mb-2">My Settings</h3>
-                    <p class="text-gray-600">Manage your account settings and preferences.</p>
-                </div>
-            </div>
-        </div>
+<div class="w-full max-w-lg bg-white p-10 rounded-2xl shadow-2xl text-center">
+    <h1 class="text-4xl font-bold text-sky-800 mb-4">
+        Welcome, <span sec:authentication="name">User</span>!
+    </h1>
+    <p class="text-sky-600 text-lg mb-6">You have standard <span class="font-semibold">User</span> level access.</p>
+    <form th:action="@{/logout}" method="post">
+        <button type="submit" class="inline-block bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 px-6 rounded-lg transition duration-300">
+            Logout
+        </button>
+    </form>
+    <div class="mt-8 border-t border-sky-200 pt-6">
+        <p class="text-sky-500 italic">"Alone we can do so little; together we can do so much."</p>
     </div>
-</main>
-
-<!-- Footer -->
-<footer class="bg-white mt-12 py-6">
-    <div class="container mx-auto px-6 text-center text-gray-500">
-        <p>&copy; 2025 MyApp. All rights reserved.</p>
-    </div>
-</footer>
+</div>
 
 </body>
 </html>
