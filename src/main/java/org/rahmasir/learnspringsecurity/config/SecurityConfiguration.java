@@ -33,7 +33,12 @@ public class SecurityConfiguration {
                     registry.requestMatchers("/user/**").hasRole("USER");
                     registry.requestMatchers("/admin/**").hasRole("ADMIN");
                     registry.anyRequest().authenticated();
-                }).formLogin(AbstractAuthenticationFilterConfigurer::permitAll).build();
+                }).formLogin(httpSecurityFormLoginConfigurer ->
+                        httpSecurityFormLoginConfigurer
+                                .loginPage("/login")
+                                .successHandler()
+                                .permitAll()
+                ).build();
     }
 
     @Bean
@@ -58,7 +63,7 @@ public class SecurityConfiguration {
 
     @Bean
     public UserDetailsService userDetailsService() {
-        return  userDetailsService;
+        return userDetailsService;
     }
 
     @Bean

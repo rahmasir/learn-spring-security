@@ -20,4 +20,10 @@ public class ContentController {
     public String handleAdminHome() {
         return "admin_home";
     }
+
+    @GetMapping("")
+    public String handleIndexPage() {
+        return "index";
+    }
+
 }
